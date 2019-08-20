@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="swApp">
+
+<head>
+    <title>SimulWatch</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/angular/angular.js"></script>
+</head>
+
+<body ng-controller="SimulWatchController as sw">
+
+    <!-- #region Party Section -->
+    <div ng-if="sw.state.type == 'watching-state'" class="card party-container">
+        <div class="underline">
+            {{sw.state.lobbyName}}
+        </div>
+        <div>
+            {{sw.state.host}}
+            <div>&#128081</div>
+        </div>
+        <div ng-repeat="viewer in sw.state.viewers track by $index">
+            {{viewer}}
+        </div>
+    </div>
+    <!-- #endregion -->
+
+    <div class="backBtn" ng-if="sw.state.type == 'watching-state'">
+        <button class="button" ng-click="sw.state.back()">back</button>
+    </div>
+
+    <div class="container">
+
+        <!-- #region Video Section -->
+        <div ng-show="sw.state.type == 'watching-state'" class="video-container">
+            <select ng-disabled="!sw.state.isHost" class="title" id="video" ng-change="sw.state.changeVideo()" ng-model="sw.state.videoRaw">
+                <option ng-repeat="video in sw.state.videoList">{{video}}</option>
+            </select>
+            <video id="videoPlayer" controls>
+                <source ng-src="{{sw.state.video}}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <!-- #endregion -->
+
+        <!-- #region Login Section -->
+        <div ng-if="sw.state.type == 'login-state'" class="card card-container">
+            <div class="title underline">Login</div>
+            <div class="form">
+                <label for="username" class="label">Username:</label>
+                <input id="username" ng-model="sw.state.username" placeholder="xxxx" class="input">
+            </div>
+            <button class="button" ng-click="sw.state.login()">login</button>
+        </div>
+        <!-- #endregion -->
+
+        <!-- #region Lobby Section -->
+        <div ng-if="sw.state.type == 'lobby-state'" class="card card-container">
+            <div class="title underline">Join Lobby</div>
+            <button class="button" ng-click="sw.state.createLobby()">Create Lobby</button>
+            <div class="list">
+                <div class="lobby" ng-click="sw.state.joinLobby(lobby.id)"
+                    ng-repeat="lobby in sw.state.lobbyList">
+                    <div class="lobby-title">{{lobby.name}}</div>
+                    <div class="lobby-desc">{{lobby.host}}</div>
+                    <div class="lobby-desc">{{lobby.video}}</div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="sw.state.type == 'create-lobby-state'" class="card card-container">
+            <div class="title underline">Create Lobby</div>
+            <div class="form">
+                <label for="lobbyname" class="label">Lobby Name:</label>
+                <input id="lobbyname" ng-model="sw.state.name" placeholder="xxxx" class="input">
+                <label for="video" class="label">Video:</label>
+                <select id="video" ng-model="sw.state.selectedVideo">
+                    <option ng-repeat="video in sw.state.videoList">{{video}}</option>
+                </select>
+            </div>
+            <button class="button" ng-click="sw.state.back()">back</button>
+            <button class="button" ng-click="sw.state.create()">create</button>
+        </div>
+        <!-- #endregion -->
+
+    </div>
+
+    <div ng-if="sw.err.length > 0" class="err">
+        <div>
+            {{sw.err}}
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../js/bundle.js"></script>
+</body>
+
+</html>

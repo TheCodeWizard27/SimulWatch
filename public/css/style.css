@@ -1,0 +1,164 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    color: darkgray;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    background-color: rgb(33,33,33);
+}
+
+/* #region Video */
+video {
+    width: 100%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+video:focus {
+    outline: none;
+}
+.container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+.video-container {
+    width: 50%;
+    margin: auto;
+    position: relative;
+    display: block;
+}
+/* #endregion */
+
+/* #region Misc */
+.backBtn {
+    position: absolute;
+    bottom: 8px;
+    left: 4px;
+    z-index: 10;
+}
+.card {
+    background-color: rgb(33,33,33);
+    border: 1px solid darkgray;
+    border-radius: 2px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.underline {
+    border-bottom: 1px solid darkgray;
+}
+.button {
+    margin: 4px;
+    padding: 8px;
+    text-transform: uppercase;
+    border: 1px solid darkgray;
+    margin-bottom: 0;
+    background-color: rgb(33,33,33);
+    cursor: pointer;
+    border-radius: 2px;
+    color: white;
+}
+.button:hover {
+    background-color: rgb(55,55,55);
+}
+.button:focus {
+    outline: none;
+}
+.input {
+    width: 100%;
+    display: block;
+    border: none;
+    border-bottom: 1px solid darkgray;
+    background-color: rgb(33,33,33);
+    padding: 4px;
+}
+.input:focus, .input:hover {
+    outline: none;
+    color: white;
+    background-color: rgb(55,55,55);
+}
+.title {
+    padding: 4px;
+}
+.err {
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+.err div {
+    margin: 8px auto;
+    max-width: 300px;
+    border: 1px solid rgb(200, 33,33);
+    color: rgb(200,33,33);
+    border-radius: 2px;
+    padding: 4px;
+}
+select {
+    width: 100%;
+    padding: 4px;
+    border: none;
+    background-color: rgb(33,33,33);
+    border-bottom: 1px solid darkgray;
+}
+select:focus, select:hover {
+    background-color: rgb(55,55,55);
+    color: white;
+}
+.label {
+    font-size: 14px;
+}
+/* #endregion */
+
+/* #region Party */
+.party-container {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 8px;
+}
+.party-container div div {
+    display: inline-block;
+}
+/* #endregion */
+
+/* #region Login */
+.card-container {
+    width: 50%;
+    max-width: 340px;
+    padding: 8px;
+    margin: auto;
+    position: relative;
+    display: block;
+}
+.card .title {
+    margin-bottom: 4px;
+}
+.form {
+    margin: 4px 0;
+    overflow: hidden;
+}
+/* #endregion */
+
+/* #region Lobbies */
+.list .lobby:last-child {
+    border-bottom: none;
+}
+.lobby {
+    padding: 2px;
+    cursor: pointer;
+    border-bottom: 1px solid darkgray;
+}
+.lobby:hover {
+    background-color: rgb(55,55,55);
+}
+.lobby-title {
+    font-size: 14px;
+    color: rgb(244,244,244);
+}
+.lobby-desc {
+    color: rgb(210,210,210);
+    font-size: 12px;
+}
+
+/* #nedregion */
