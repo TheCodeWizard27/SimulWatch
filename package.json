@@ -9,7 +9,7 @@
   "author": "Benny Schärer",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.7.8",
+    "angular": "^1.7.9",
     "browserify": "^16.5.0",
     "express": "^4.17.1",
     "gulp": "^4.0.2",
